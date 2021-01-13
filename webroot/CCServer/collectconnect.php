@@ -41,9 +41,9 @@
 	*/
 
 	/* Database connection information */
-	$cc-database-user = $_ENV["DB_SERVICE_USER"];
-	$cc-database-password = $_ENV["DB_SERVICE_PWD"];
-	$database-host = $_ENV["DB_SERVICE_HOST"];
+	$cc_database_user = $_ENV["DB_SERVICE_USER"];
+	$cc_database_password = $_ENV["DB_SERVICE_PWD"];
+	$database_host = $_ENV["DB_SERVICE_HOST"];
 	// Recovery Key
 	// These options can safely be changed without affecting
 	// previously generate recovery keys
@@ -481,8 +481,8 @@ function get_friend_colors($pdo, $username, $authkey) {
 	// Main
 	// Pass
 	try {
-		$pdo = new PDO('mysql:host=' . $database-host . ';dbname=collectconnect;charset=utf8mb4,'. $cc-database-user. ',' . $cc-database-pwd);
-		echo $pdo;
+		$pdo = new PDO("mysql:host=$database_host;dbname=collect_connect", $cc_database_user, $cc_database_pwd);
+		//echo $pdo;
 		//$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
