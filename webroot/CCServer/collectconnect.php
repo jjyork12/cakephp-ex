@@ -40,6 +40,10 @@
 			recoverykey: varchar(128)
 	*/
 
+	/* Database connection information */
+	$cc-database-user = $_ENV["DB_SERVICE_USER"];
+	$cc-database-password = $_ENV["DB_SERVICE_PWD"];
+	$database-host = $_ENV["DB_SERVICE_HOST"];
 	// Recovery Key
 	// These options can safely be changed without affecting
 	// previously generate recovery keys
@@ -432,11 +436,11 @@ function get_friend_colors($pdo, $username, $authkey) {
 	  validate_username($username4);
 
 		$uid1 = get_userid($pdo, $username1);
-		
+
 		$uid2 = get_userid($pdo, $username2);
-		
+
 		$uid3 = get_userid($pdo, $username3);
-		
+
 		$uid4 = get_userid($pdo, $username4);
 
 	  $insert = $pdo->prepare('INSERT INTO `games` (`RoundNumber`,`card1`,`card2`, `Player1`,`word1`,`Player2`,`word2`,`Player3`,`word3`, `Player4`,`word4`) VALUES (:nr, :c1,:c2,:u1,:w1, :u2,:w2, :u3,:w3, :u4,:w4);');
@@ -459,7 +463,7 @@ function get_friend_colors($pdo, $username, $authkey) {
 	}
 
 	function add_words($pdo, $username, $userWord, $card1, $card2) {
-		
+
 		$uid = get_userid($pdo, $username);
 
 	  $insert = $pdo->prepare('INSERT INTO `words` (`$userID`, `$userWord`,`$card1`, `$card2`) VALUES (:uid, :uw, :c1, :c2);');
@@ -477,8 +481,11 @@ function get_friend_colors($pdo, $username, $authkey) {
 	// Main
 	// Pass
 	try {
-		$pdo = new PDO('mysql:host=localhost;dbname=collectconnect;charset=utf8mb4', 'root', 'Ve3H*Me:Ce');
+		$pdo = new PDO('mysql:host=' . $database-host . ';dbname=collectconnect;charset=utf8mb4,'. $cc-database-user. ',' . $cc-database-pwd);
+		echo $pdo;
 		//$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
 	}
 	catch (Error | Exception $e) {
 		output_and_quit(TRUE, 'FATAL! PDO connection failed');
