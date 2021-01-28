@@ -13,6 +13,6 @@
  </head>
  <body>
  <?php echo '<p>Hello Now</p>'; ?>
- <?php echo '<p>' . $hello . '</p>'; ?>
+ <?php echo $hello; ?>
  </body>
 </html>
