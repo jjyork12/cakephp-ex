@@ -20,6 +20,7 @@
 		output_and_quit(TRUE, 'FATAL! PDO connection failed');
 		die;
 	}
+?>
 
 <html>
  <head>
@@ -27,7 +28,9 @@
  </head>
  <body>
  <?php echo '<p>Hello World</p>'; ?>
+ <p><? php echo $db_host; ?></p>
+ <p><? php echo $db_name; ?></p>
+ <p><? php echo $cc_database_user; ?></p>
  </body>
 </html>
 
-?>
