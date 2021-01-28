@@ -4,7 +4,7 @@
  </head>
   <body>
 
- <? php
+<?php
 
 	$hello = "OK";
 	$db_host = $_SERVER["MYSQL_SERVICE_HOST"];
