@@ -11,8 +11,8 @@
  </head>
  <body>
  <?php echo '<p>Hello World</p>'; ?>
- <? php echo "<p>" . $db_host . "</p>";
- <? php echo "<p>" . $db_host . "</p>";
+ <? php echo "<p>" . $db_host . "</p>"; ?>
+ <? php echo "<p>" . $db_host . "</p>"; ?>
  </body>
 </html>
 
