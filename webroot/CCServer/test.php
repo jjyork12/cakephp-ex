@@ -12,7 +12,8 @@
 	$cc_database_user = $_SERVER["DATABASE_USER"];
 	$cc_database_password = $_SERVER["DB_SERVICE_PWD"];
 
-	echo $hello;
+	//echo $hello;
+	echo $db_host;
 
 	echo "<p>Hello Now</p>";
 
